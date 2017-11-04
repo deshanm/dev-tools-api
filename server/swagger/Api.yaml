@@ -1,0 +1,73 @@
+swagger: "2.0"
+info:
+  version: 1.0.0
+  title: dev-tools-api
+  description: DevOps tool for developers not for devOps
+basePath: /api/v1
+tags:
+  - name: Examples
+    description: Simple example endpoints
+  - name: Specification
+    description: The swagger API specification
+
+consumes:
+  - application/json
+produces:
+  - application/json
+
+definitions:
+  ExampleBody:
+    type: object
+    title: example
+    required:
+      - name
+    properties:
+      name:
+        type: string
+        description: The example name
+
+paths:
+  /databases:
+    get:
+      tags:
+        - databases
+      description: Fetch all databases details
+      responses:
+        200:
+          description: Returns all examples
+  /databases/{database_id}:
+    get:
+      tags:
+        - databases
+      parameters:
+        - name: database_id
+          in: path
+          required: true
+          description: The database_id  database
+          type: string
+      description: Fetch all databases details
+      responses:
+        200:
+          description: Returns all examples
+  /databases/dump/{database_id}:
+    post:
+      tags:
+        - databases
+      parameters:
+        - name: database_id
+          in: path
+          required: true
+          description: The database_id  database
+          type: string
+      description: Fetch all databases details
+      responses:
+        200:
+          description: Returns all examples
+
+  /spec:
+    get:
+      tags:
+        - Specification
+      responses:
+        200:
+          description: Return the API specification
