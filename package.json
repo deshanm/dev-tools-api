@@ -1,7 +1,7 @@
 {
   "name": "dev-tools-api",
   "version": "1.0.0",
-  "description": "DevOps tool for developer not for DevOps",
+  "description": "DevOp tool for developer not for DevOps",
   "main": "index.js",
   "scripts": {
     "start": "cd build && node main",
