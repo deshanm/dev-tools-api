@@ -1,5 +1,5 @@
 node_modules
 build
-*.logs
-logs/**.*
-db_backup/**.*
+*.log
+logs/*
+db_backup/*
