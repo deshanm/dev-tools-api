@@ -10,6 +10,7 @@ import * as os from 'os';
 import cookieParser from 'cookie-parser';
 import swaggerify from './swagger';
 import morgan from 'morgan';
+import mongoose from 'mongoose';
 
 process.on('uncaughtException', function(err) {
   logger.error('uncaughtException', err);
@@ -19,6 +20,27 @@ process.on('uncaughtException', function(err) {
   );
   process.exit(1);
 });
+
+// Set native promises as mongoose promise
+mongoose.Promise = global.Promise;
+var options = {
+  useMongoClient: true,
+  autoIndex: false,
+  reconnectTries: 3,
+  reconnectInterval: 500,
+  poolSize: 10,
+  bufferMaxEntries: 0,
+};
+// MongoDB Connection
+mongoose.connect(config.MONGO_URL, options).then(
+  () => {
+    logger.info('mongoose', 'Connection established.');
+  },
+  err => {
+    logger.error('Please make sure Mongodb is installed and running!'); // eslint-disable-line no-console
+  }
+);
+
 const app = new Express();
 
 app.use(require('morgan')(':method :url :status :response-time ms', { stream: stream }));

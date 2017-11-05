@@ -15,6 +15,7 @@
     "express": "^4.15.3",
     "moment": "^2.19.1",
     "mongodb-backup": "^1.6.9",
+    "mongoose": "^4.13.0",
     "morgan": "^1.9.0",
     "mysqldump": "^1.4.2",
     "source-map-support": "^0.4.15",
