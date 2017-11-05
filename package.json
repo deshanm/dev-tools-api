@@ -4,7 +4,7 @@
   "description": "DevOp tool for developer not for DevOps",
   "main": "index.js",
   "scripts": {
-    "start": "cd build && node main",
+    "start": "npm run compile && cd build && node main",
     "compile": "node build.js && backpack build",
     "dev": "node build.js && backpack dev",
     "test": "node build.js && _mocha --compilers js:babel-register"

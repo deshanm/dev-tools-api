@@ -38,6 +38,7 @@ mongoose.connect(config.MONGO_URL, options).then(
   },
   err => {
     logger.error('Please make sure Mongodb is installed and running!'); // eslint-disable-line no-console
+    process.exit(1);
   }
 );
 
